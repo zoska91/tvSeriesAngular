@@ -38,6 +38,9 @@ export class FormComponent implements OnInit {
         localStorage.setItem('token', resp.userId);
         this.auth.userLogin = true;
         this.router.navigate(['/profile']);
+      } else {
+        this.error = resp.resp;
+        console.log(this.error);
       }
     });
   }
