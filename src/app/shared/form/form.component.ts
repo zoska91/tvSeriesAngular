@@ -44,8 +44,8 @@ export class FormComponent implements OnInit {
 
   singup(login: string, password: string): void {
     this.auth.createProfile(this.user).subscribe(resp => {
-      if (resp.resp === 'correct') {
-        this.router.navigate(['/login']);
+      if (resp.resp === 'created') {
+        this.loginFn(login, password);
       } else {
         this.error = resp.resp;
         console.log(this.error);
