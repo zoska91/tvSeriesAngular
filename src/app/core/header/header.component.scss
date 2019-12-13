@@ -33,4 +33,8 @@
     @include link;
     cursor: pointer;
   }
+
+  &--dark {
+    background-color: $main-color;
+  }
 }
