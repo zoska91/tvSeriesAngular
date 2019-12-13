@@ -14,29 +14,41 @@ export class FormComponent implements OnInit {
   @Input() formType: string;
 
   user: User;
+  error: string;
 
   constructor(private auth: AuthorizationService, private router: Router) {}
 
   ngOnInit() {}
 
   submit(login: string, password: string) {
-    if (this.formType === 'login') {
-      this.getLogin(login, password);
-    } else if (this.formType === 'singup') {
-      console.log('singup');
-    }
-  }
-
-  getLogin(login: string, password: string): void {
     this.user = {
       login,
       password
     };
+    if (this.formType === 'login') {
+      this.loginFn(login, password);
+    } else if (this.formType === 'singup') {
+      this.singup(login, password);
+    }
+  }
+
+  loginFn(login: string, password: string): void {
     this.auth.authorization(this.user).subscribe(resp => {
       if (resp.resp === 'correct') {
         localStorage.setItem('token', resp.userId);
         this.auth.userLogin = true;
         this.router.navigate(['/profile']);
+      }
+    });
+  }
+
+  singup(login: string, password: string): void {
+    this.auth.createProfile(this.user).subscribe(resp => {
+      if (resp.resp === 'correct') {
+        this.router.navigate(['/login']);
+      } else {
+        this.error = resp.resp;
+        console.log(this.error);
       }
     });
   }
