@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Acme&display=swap');
+@import './assets/style/mixins.scss';
+@import './assets/style/variables.scss';
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: $main-font, arial, sans-serif;
+  overflow: hidden;
+  background: grey;
+}
+
+section {
+  padding-top: 10vh;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  @include flex-center;
+}

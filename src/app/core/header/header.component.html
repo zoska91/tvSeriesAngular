@@ -1,0 +1,29 @@
+<nav class="nav-main">
+  <a [routerLink]="['/']" class="nav-main__logo">Home</a>
+  <div [ngSwitch]="auth.userLogin">
+    <ul class="nav-main__list" *ngSwitchCase="true">
+      <li class="nav-main__item">
+        <a [routerLink]="['/profile']" class="nav-main__link">
+          Mój profil
+        </a>
+      </li>
+      <li class="nav-main__item" (click)="logout()">
+        <a class="nav-main__link">
+          Wyloguj
+        </a>
+      </li>
+    </ul>
+    <ul class="nav-main__list" *ngSwitchDefault>
+      <li class="nav-main__item">
+        <a [routerLink]="['/login']" class="nav-main__link">
+          Log in
+        </a>
+      </li>
+      <li class="nav-main__item">
+        <a [routerLink]="['/singup']" class="nav-main__link">
+          Sing up
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,36 @@
+@import '../../../assets/style/mixins.scss';
+@import '../../../assets/style/variables.scss';
+
+.nav-main {
+  position: absolute;
+  height: 10vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  padding: 5vh 10vw;
+  background-color: transparent;
+  margin: 0;
+
+  &__logo {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    @include link;
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+  }
+
+  &__item {
+    margin-left: 5vw;
+  }
+
+  &__link {
+    @include link;
+    cursor: pointer;
+  }
+}
