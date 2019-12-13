@@ -1,1 +1,18 @@
-<p>search works!</p>
+<div class="searchSeries">
+  <form class="searchSeries__form" (ngSubmit)="search(searchTitle)">
+    <input
+      type="text"
+      name="searchTitle"
+      [(ngModel)]="searchTitle"
+      placeholder="title"
+      class="searchSeries__input"
+    />
+  </form>
+
+  <ul class="searchSeries__list-result">
+    <li class="searchSeries__list-item" *ngFor="let tv of results">
+      {{ tv.show.name }} - {{ tv.show.premiered }}
+      <span *ngIf="tv.show.network"> [{{ tv.show.network.country.code }}]</span>
+    </li>
+  </ul>
+</div>

@@ -16,9 +16,7 @@ export class AuthorizationService {
 
   userLogin: boolean = localStorage.getItem('token') ? true : false;
 
-  constructor(private http: HttpClient) {
-    console.log(this.userLogin);
-  }
+  constructor(private http: HttpClient) {}
 
   authorization(user: User): Observable<User> {
     const url = `${this.API}login`;
