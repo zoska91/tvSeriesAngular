@@ -1,4 +1,5 @@
 <form class="login-form form" (ngSubmit)="submit(login, password)">
+  <p *ngIf="error" class="error">{{ error }}</p>
   <p>
     <label class="form__label" for="name">e-mail</label>
     <input
