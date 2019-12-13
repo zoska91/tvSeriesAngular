@@ -11,7 +11,7 @@
 body {
   margin: 0;
   font-family: $main-font, arial, sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 ul {
@@ -21,4 +21,10 @@ ul {
 a {
   text-decoration: none;
   @include flex-center;
+}
+
+.error {
+  color: $red-color;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
