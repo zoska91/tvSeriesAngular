@@ -7,12 +7,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { LoginComponent } from './login/login.component';
 import { SingupComponent } from './singup/singup.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SharedModule } from '../shared/shared.module';
 
 import { AuthorizationService } from './../authorization.service';
 
 @NgModule({
   declarations: [LoginComponent, SingupComponent, ProfileComponent],
-  imports: [CommonModule, FormsModule, BrowserModule, HttpClientModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    BrowserModule,
+    HttpClientModule,
+    SharedModule
+  ],
   exports: [LoginComponent, SingupComponent, ProfileComponent],
   providers: [AuthorizationService]
 })

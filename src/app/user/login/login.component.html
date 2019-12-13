@@ -1,25 +1,3 @@
-<form class="login-form form" (ngSubmit)="getLogin(login, password)">
-  <p>
-    <label class="form__label" for="name">e-mail</label>
-    <input
-      [(ngModel)]="login"
-      type="text"
-      name="login"
-      class="form__input"
-      placeholder="name"
-    />
-  </p>
-  <p>
-    <label class="form__label">password </label>
-    <input
-      [(ngModel)]="password"
-      type="password"
-      name="password"
-      class="form__input"
-      placeholder="password"
-    />
-  </p>
-  <p>
-    <button type="submit" value="log in" class="form__button">log in</button>
-  </p>
-</form>
+<section class="login">
+  <app-form [formType]="formType"></app-form>
+</section>
