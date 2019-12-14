@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
 import { TVInfo } from './models/TVInfo';
+import { TVDetails } from './models/TVDetails';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,11 @@ export class TvmazeService {
   searchTitle(title: string): Observable<TVInfo[]> {
     const url = `${this.API}search/shows?q=${title}`;
     return this.http.get<TVInfo[]>(url).pipe(catchError(this.handleError));
+  }
+
+  getOneSeries(id: number): Observable<TVDetails> {
+    const url = `${this.API}shows/${id}`;
+    return this.http.get<TVDetails>(url).pipe(catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse) {

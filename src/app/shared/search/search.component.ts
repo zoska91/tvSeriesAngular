@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { scrollTo } from 'scroll-js';
 
 import { TVInfo } from './../../models/TVInfo';
 
 import { TvmazeService } from './../../tvmaze.service';
+import { OneTvSeriesComponent } from '../one-tv-series/one-tv-series.component';
 
 @Component({
   selector: 'app-search',
@@ -10,13 +12,22 @@ import { TvmazeService } from './../../tvmaze.service';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+  @ViewChild(OneTvSeriesComponent, { static: false })
+  child: OneTvSeriesComponent;
+
   searchTitle: string;
   results: TVInfo[];
   noResults: string;
   idSeries: number;
+  offsetTop: number;
+
   constructor(private tvmaze: TvmazeService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    const offsetTop = document.querySelector('.container-one-tv-series')
+      .offsetTop;
+    this.offsetTop = offsetTop;
+  }
 
   search(title: string) {
     this.noResults = null;
@@ -25,7 +36,7 @@ export class SearchComponent implements OnInit {
       console.log(resp);
       if (resp.length === 1) {
         this.idSeries = resp[0].show.id;
-        console.log(this.idSeries);
+        this.getIdSeries(this.idSeries);
       } else if (resp.length > 0) {
         this.results = resp;
       } else {
@@ -38,5 +49,7 @@ export class SearchComponent implements OnInit {
   getIdSeries(id: number) {
     console.log(id);
     this.idSeries = id;
+    scrollTo(document.body, { top: this.offsetTop });
+    this.child.searchOneSeries(id);
   }
 }

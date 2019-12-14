@@ -1,4 +1,9 @@
+import { Location } from '@angular/common';
 import { Component, OnInit, Input } from '@angular/core';
+
+import { TvmazeService } from 'src/app/tvmaze.service';
+import { TVDetails } from './../../models/TVDetails';
+import { AuthorizationService } from 'src/app/authorization.service';
 
 @Component({
   selector: 'app-one-tv-series',
@@ -8,9 +13,27 @@ import { Component, OnInit, Input } from '@angular/core';
 export class OneTvSeriesComponent implements OnInit {
   @Input() idSeries: number;
 
-  constructor() {}
+  tvDetails: TVDetails;
+  isLogin: boolean;
+
+  constructor(
+    private tvmaze: TvmazeService,
+    private location: Location,
+    public auth: AuthorizationService
+  ) {}
 
   ngOnInit() {
-    console.log(this.idSeries);
+    if (this.auth.userLogin) {
+      console.log(this.auth.userLogin);
+    }
+  }
+
+  searchOneSeries(id: number) {
+    this.tvDetails = null;
+    this.tvmaze.getOneSeries(id).subscribe(resp => {
+      console.log(resp);
+      this.tvDetails = resp;
+      if (this.auth.userLogin) this.isLogin = true;
+    });
   }
 }
