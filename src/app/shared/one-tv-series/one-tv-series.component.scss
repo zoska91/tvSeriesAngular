@@ -1,0 +1,39 @@
+@import '../../../assets/style/mixins.scss';
+@import '../../../assets/style/variables.scss';
+
+.one-tv-series {
+  position: absolute;
+  margin: 0 5vw;
+  top: 100vh;
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__img-series {
+    order: 1;
+  }
+
+  &__title-series {
+    order: 3;
+  }
+
+  &__info-series {
+    order: 4;
+  }
+
+  &__next {
+    order: 5;
+  }
+
+  &__button {
+    @include button(60vw, auto, $main-color, $main-color);
+    margin-top: 5vh;
+    padding: 2vh 3vw;
+    order: 2;
+
+    &:hover {
+      @include button-hover;
+    }
+  }
+}

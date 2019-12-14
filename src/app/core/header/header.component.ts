@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { AuthorizationService } from './../../authorization.service';
 
@@ -9,9 +10,17 @@ import { AuthorizationService } from './../../authorization.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  constructor(public auth: AuthorizationService, private router: Router) {}
+  constructor(
+    public auth: AuthorizationService,
+    private router: Router,
+    location: Location
+  ) {}
 
-  ngOnInit() {}
+  currentURL: boolean;
+
+  ngOnInit() {
+    this.currentURL = location.pathname === '/' ? false : true;
+  }
 
   logout() {
     localStorage.removeItem('token');

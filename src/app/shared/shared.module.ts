@@ -6,10 +6,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { SearchComponent } from './search/search.component';
 import { FormComponent } from './form/form.component';
+import { OneTvSeriesComponent } from './one-tv-series/one-tv-series.component';
 
 @NgModule({
-  declarations: [SearchComponent, FormComponent],
+  declarations: [SearchComponent, FormComponent, OneTvSeriesComponent],
   imports: [CommonModule, FormsModule, BrowserModule, HttpClientModule],
-  exports: [SearchComponent, FormComponent]
+  exports: [SearchComponent, FormComponent, OneTvSeriesComponent]
 })
 export class SharedModule {}

@@ -4,12 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularNodeExpressComponent } from './angular-node-express/angular-node-express.component';
+import { CoreModule } from './core/core.module';
 
 import { FormsModule } from '@angular/forms';
 import { HomeModule } from './home/home.module';
 
-import { CoreModule } from './core/core.module';
-
+import { TvmazeService } from './tvmaze.service';
 import { AuthorizationService } from './authorization.service';
 
 @NgModule({
@@ -22,7 +22,7 @@ import { AuthorizationService } from './authorization.service';
     HomeModule,
     CoreModule
   ],
-  providers: [AuthorizationService],
+  providers: [AuthorizationService, TvmazeService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

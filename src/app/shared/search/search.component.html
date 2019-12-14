@@ -1,1 +1,32 @@
-<p>search works!</p>
+<div class="searchSeries">
+  <form class="searchSeries__form" (ngSubmit)="search(searchTitle)">
+    <input
+      type="text"
+      name="searchTitle"
+      [(ngModel)]="searchTitle"
+      placeholder="title"
+      class="searchSeries__input"
+    />
+  </form>
+
+  <div class="error" *ngIf="noResults">
+    we don't have information about {{ noResults }}.
+    <p>Try again!</p>
+  </div>
+
+  <ul class="searchSeries__list-result" *ngIf="results">
+    <li
+      class="searchSeries__list-item"
+      *ngFor="let tv of results"
+      (click)="getIdSeries(tv.show.id)"
+    >
+      {{ tv.show.name }} - {{ tv.show.premiered }}
+      <span *ngIf="tv.show.network"> [{{ tv.show.network.country.code }}]</span>
+    </li>
+  </ul>
+
+  <app-one-tv-series *ngIf="idSeries" [idSeries]="idSeries">
+    <p>fe</p>
+    <div>fewf</div>
+  </app-one-tv-series>
+</div>
