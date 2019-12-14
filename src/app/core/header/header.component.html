@@ -1,4 +1,4 @@
-<nav [className]="currentURL === true ? 'nav-main--dark nav-main' : 'nav-main'">
+<nav class="nav-main">
   <a [routerLink]="['/']" class="nav-main__logo">Home</a>
   <div [ngSwitch]="auth.userLogin">
     <ul class="nav-main__list" *ngSwitchCase="true">

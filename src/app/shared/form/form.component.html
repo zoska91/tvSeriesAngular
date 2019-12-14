@@ -21,6 +21,8 @@
     />
   </p>
   <p>
-    <button type="submit" value="log in" class="form__button">log in</button>
+    <button type="submit" value="log in" class="form__button">
+      {{ formType === 'login' ? 'Log in' : 'Sing up' }}
+    </button>
   </p>
 </form>
