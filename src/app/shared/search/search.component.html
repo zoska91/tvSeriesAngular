@@ -24,9 +24,6 @@
       <span *ngIf="tv.show.network"> [{{ tv.show.network.country.code }}]</span>
     </li>
   </ul>
-
-  <app-one-tv-series *ngIf="idSeries" [idSeries]="idSeries">
-    <p>fe</p>
-    <div>fewf</div>
-  </app-one-tv-series>
 </div>
+<app-one-tv-series [idSeries]="idSeries" class="container-one-tv-series">
+</app-one-tv-series>

@@ -1,1 +1,20 @@
-<p>one-tv-series works!</p>
+<div class="one-tv-series" *ngIf="idSeries">
+  <img
+    class="one-tv-series__img-series"
+    *ngIf="tvDetails"
+    src="{{ tvDetails.image.medium }}"
+    alt="foto"
+  />
+
+  <button class="one-tv-series__button">
+    {{ isLogin ? 'Add to your favorites' : 'Login and add to favorites' }}
+  </button>
+
+  <h2 class="one-tv-series__title-series" *ngIf="tvDetails">
+    {{ tvDetails.name }}
+  </h2>
+
+  <p class="one-tv-series__info-series" *ngIf="tvDetails">
+    {{ tvDetails.summary }}
+  </p>
+</div>
