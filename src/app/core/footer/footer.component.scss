@@ -1,0 +1,24 @@
+@import '../../../assets/style/variables.scss';
+
+.footer {
+  text-align: right;
+  padding: 2vh 10vw;
+  background-color: rgb(10, 10, 10);
+  color: white;
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
+
+  &__source {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__link {
+    font-style: italic;
+    color: #aaa;
+    margin-left: 2vw;
+  }
+}
