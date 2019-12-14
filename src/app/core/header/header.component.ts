@@ -16,11 +16,7 @@ export class HeaderComponent implements OnInit {
     location: Location
   ) {}
 
-  currentURL: boolean;
-
-  ngOnInit() {
-    this.currentURL = location.pathname === '/' ? false : true;
-  }
+  ngOnInit() {}
 
   logout() {
     localStorage.removeItem('token');
