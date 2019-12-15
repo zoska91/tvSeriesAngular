@@ -1,3 +1,4 @@
+import { ProfileService } from './../../profile.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-
-  constructor() { }
+  constructor(private user: ProfileService) {}
 
   ngOnInit() {
+    // this.getIds();
   }
 
+  getIds(): void {
+    this.user.getAllIdsFavorites().subscribe(resp => {
+      console.log(resp);
+    });
+  }
 }

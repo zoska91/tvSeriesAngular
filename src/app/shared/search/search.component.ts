@@ -28,7 +28,7 @@ export class SearchComponent implements OnInit {
     this.offsetTop = el.offsetTop;
   }
 
-  search(title: string) {
+  search(title: string): void {
     this.noResults = null;
     this.results = [];
     this.tvmaze.searchTitle(title).subscribe(resp => {

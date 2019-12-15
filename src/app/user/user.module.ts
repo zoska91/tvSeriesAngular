@@ -10,6 +10,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SharedModule } from '../shared/shared.module';
 
 import { AuthorizationService } from './../authorization.service';
+import { ProfileService } from './../profile.service';
 
 @NgModule({
   declarations: [LoginComponent, SingupComponent, ProfileComponent],
@@ -21,6 +22,6 @@ import { AuthorizationService } from './../authorization.service';
     SharedModule
   ],
   exports: [LoginComponent, SingupComponent, ProfileComponent],
-  providers: [AuthorizationService]
+  providers: [AuthorizationService, ProfileService]
 })
 export class UserModule {}
