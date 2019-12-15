@@ -18,6 +18,12 @@ export class AuthorizationService {
 
   constructor(private http: HttpClient) {}
 
+  // public isAuthenticated(): boolean {
+  //   const token = localStorage.getItem('token');
+
+  //   return !token;
+  // }
+
   authorization(user: User): Observable<User> {
     const url = `${this.API}login`;
     return this.http.post<User>(url, user).pipe(catchError(this.handleError));

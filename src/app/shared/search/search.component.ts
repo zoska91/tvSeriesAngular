@@ -24,9 +24,8 @@ export class SearchComponent implements OnInit {
   constructor(private tvmaze: TvmazeService) {}
 
   ngOnInit() {
-    const offsetTop = document.querySelector('.container-one-tv-series')
-      .offsetTop;
-    this.offsetTop = offsetTop;
+    const el = <HTMLElement>document.querySelector('.container-one-tv-series');
+    this.offsetTop = el.offsetTop;
   }
 
   search(title: string) {
