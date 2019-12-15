@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -10,7 +10,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { SharedModule } from '../shared/shared.module';
 
 import { AuthorizationService } from './../authorization.service';
-import { ProfileService } from './../profile.service';
 
 @NgModule({
   declarations: [LoginComponent, SingupComponent, ProfileComponent],
@@ -22,6 +21,7 @@ import { ProfileService } from './../profile.service';
     SharedModule
   ],
   exports: [LoginComponent, SingupComponent, ProfileComponent],
-  providers: [AuthorizationService, ProfileService]
+  providers: [AuthorizationService],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class UserModule {}

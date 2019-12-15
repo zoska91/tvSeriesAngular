@@ -8,11 +8,13 @@ import { SearchComponent } from './search/search.component';
 import { FormComponent } from './form/form.component';
 import { OneTvSeriesComponent } from './one-tv-series/one-tv-series.component';
 import { AuthorizationService } from 'src/app/authorization.service';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [SearchComponent, FormComponent, OneTvSeriesComponent],
   imports: [CommonModule, FormsModule, BrowserModule, HttpClientModule],
   exports: [SearchComponent, FormComponent, OneTvSeriesComponent],
-  providers: [AuthorizationService]
+  providers: [AuthorizationService],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SharedModule {}
