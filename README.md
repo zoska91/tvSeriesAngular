@@ -1,4 +1,4 @@
-form me:
+from me:
 
 it was creating to practice angular (so project is similar to another one)
 it's my second mini project in angular.
@@ -6,6 +6,9 @@ You can find your favirites TV series and add to your favirites.
 Project isn't finish and, so user profil is not ready.
 
 I used nodeJS to back-end.
+I added simple tests - first try
+
+For now it's only mobile view
 
 info from Angular:
 
