@@ -6,6 +6,8 @@ import { LoginComponent } from './user/login/login.component';
 import { SingupComponent } from './user/singup/singup.component';
 import { ProfileComponent } from './user/profile/profile.component';
 
+import { AuthGuardService as AuthGuard } from './auth-guard.service';
+
 const routes: Routes = [
   {
     path: '',
@@ -14,7 +16,7 @@ const routes: Routes = [
   },
   { path: 'login', component: LoginComponent },
   { path: 'singup', component: SingupComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 

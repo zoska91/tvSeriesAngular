@@ -4,13 +4,14 @@ const Favorite = require('../models/favorites');
 const mongoose = require('mongoose');
 
 // czy zalogowany
-router.all('*', (req, res, next) => {
-  if (!req.session.profile) {
-    res.redirect('/login');
-    return;
-  }
-  next();
-});
+// router.all('*', (req, res, next) => {
+//   if (!req.session.profile) {
+//     console.log('not log', req.session.profile);
+//     res.redirect('/login');
+//     return;
+//   }
+//   next();
+// });
 
 //dodaje serialu do ulubionych
 router.post('/add/:id', (req, res) => {
@@ -38,7 +39,7 @@ router.post('/add/:id', (req, res) => {
 });
 
 router.post('/remove/:id', (req, res) => {
-  console.log('params', req.params);
+  console.log('params', req.params.profile);
 
   const { id: seriesId } = req.params;
   const { _id: userId } = req.session.profile;
@@ -51,7 +52,9 @@ router.post('/remove/:id', (req, res) => {
 });
 
 router.get('/favorites', (req, res) => {
+  console.log(req.session.profile);
   const { _id: userId } = req.session.profile;
+  console.log(_id, userId);
   findFavorites = Favorite.find({ userId });
 
   findFavorites.exec((err, data) => {

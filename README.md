@@ -1,3 +1,14 @@
+form me:
+
+it was creating to practice angular (so project is similar to another one)
+it's my second mini project in angular.
+You can find your favirites TV series and add to your favirites.
+Project isn't finish and, so user profil is not ready.
+
+I used nodeJS to back-end.
+
+info from Angular:
+
 # TvseriesAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.

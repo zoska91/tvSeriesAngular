@@ -47,6 +47,7 @@ app.use(
 
 app.use('/api/login', loginRouter);
 app.use('/api/singup', singupRouter);
+app.use('/api/profile', profileRouter);
 app.use('/api/', indexRouter);
 
 module.exports = app;

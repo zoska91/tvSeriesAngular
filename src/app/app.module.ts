@@ -1,6 +1,6 @@
-import { UserModule } from './user/user.module';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularNodeExpressComponent } from './angular-node-express/angular-node-express.component';
@@ -8,6 +8,7 @@ import { CoreModule } from './core/core.module';
 
 import { FormsModule } from '@angular/forms';
 import { HomeModule } from './home/home.module';
+import { UserModule } from './user/user.module';
 
 import { TvmazeService } from './tvmaze.service';
 import { AuthorizationService } from './authorization.service';
@@ -20,9 +21,11 @@ import { AuthorizationService } from './authorization.service';
     FormsModule,
     UserModule,
     HomeModule,
-    CoreModule
+    CoreModule,
+    HttpClientModule
   ],
   providers: [AuthorizationService, TvmazeService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {}

@@ -1,9 +1,17 @@
 import { TestBed } from '@angular/core/testing';
-
+import {
+  HttpClientTestingModule,
+  HttpTestingController
+} from '@angular/common/http/testing';
 import { TvmazeService } from './tvmaze.service';
 
 describe('TvmazeService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  beforeEach(() =>
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [TvmazeService]
+    })
+  );
 
   it('should be created', () => {
     const service: TvmazeService = TestBed.get(TvmazeService);
